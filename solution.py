@@ -8,10 +8,10 @@ def webServer(port=13331):
    #Prepare a server socket
    #Fill in start
 
-   serverHost = '192.168.4.30'
+   #serverHost = '192.168.4.30'
    serverPort = 13331
    serverSocket.bind(('',serverPort))
-   serverSocket.listen(5)
+   serverSocket.listen(1) 
    #Fill in end
 
    while True:
@@ -19,7 +19,8 @@ def webServer(port=13331):
        print('Ready to serve...')
        connectionSocket, addr = serverSocket.accept() #Fill in start #Fill in end
        try:
-           message = connectionSocket.recv(4096) #Fill in start    #Fill in end
+           message = connectionSocket.recv(1024) #Fill in start    #Fill in end
+           
            filename = message.split()[1]
            f = open(filename[1:])
            outputdata = f.readline()   #Fill in start     #Fill in end
